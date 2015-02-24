@@ -6,18 +6,16 @@ app.controller('MainController', function($scope, gapiFactory) {
 		gapiFactory.getAuth().then(function(authResult) {
 			$scope.isAuthorized = true;
 		}).then(function() {
-			gapiFactory.getCalendarId('Hotel BK')
-			.then(function(data) {
-				return gapiFactory.getCalendarById(data)
-				// $scope.calList = data;
-			}).then(function(response) {
-				$scope.calList = response;
+			return gapiFactory.getCalendarId('Hotel BK');
+		}).then(function(data) {
+			return gapiFactory.getEventList(data);
+		}).then(function(response) {
+			var list = response.map(function(item) {
+				return item.summary;
 			});
-
-			// gapiFactory.getCalendarList()
-			// .then(function(list) {
-			// 	$scope.calList = list;
-			// });
+			$scope.calList = list;
+		}).catch(function(err) {
+			$scope.calList = err.body;
 		});
 	};
 });

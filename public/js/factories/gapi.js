@@ -31,7 +31,7 @@ app.factory('gapiFactory', function($q) {
 
 	factory.getToken = function() {
 		return gapi.auth.getToken();
-	}
+	};
 
 	factory.getCalendarList = function() {
 		return calendarLoad.then(function() {
@@ -41,7 +41,7 @@ app.factory('gapiFactory', function($q) {
 		}).then(function(response) {
 			return response.result.items;
 		});
-	}
+	};
 
 	factory.getCalendarId = function(calendarName) {
 		return factory.getCalendarList()
@@ -53,21 +53,23 @@ app.factory('gapiFactory', function($q) {
 			});
 			return id;
 		});
-	}
+	};
 
-	factory.getCalendarById = function(calId) {
+	factory.getEventList = function(calId) {
+		console.log(calId);
 		return calendarLoad.then(function() {
 			return gapi.client.calendar
 			.events.list({
 				calendarId: calId,
 				orderBy: 'startTime',
+				singleEvents: true,
 				maxResults: 5,
-				timeMin: new Date()
+				timeMin: new Date().toISOString()
 			});
 		}).then(function(response) {
-			return response;
+			return response.result.items;
 		});
-	}
+	};
 
 
 	return factory;

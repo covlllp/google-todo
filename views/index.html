@@ -17,11 +17,14 @@
 		<script src="/js/app.js"></script>
 		<script src="/js/controllers/MainController.js"></script>
 		<script src="/js/factories/gapi.js"></script>
+		<script src="/js/factories/googleApi/gapiInit.js"></script>
+		<script src="/js/factories/googleApi/gapiCal.js"></script>
+		<script src="/js/factories/googleApi/gapiEvt.js"></script>
 	</head>
 
 	<body ng-app="MainApp" ng-controller="MainController">
 		<div class="container">
-			<button ng-hide="isAuthorized" class="btn btn-primary" ng-click="auth()">Authorize me!</button>
+			<button ng-hide="isAuthorized" class="btn btn-default" ng-click="auth()">Authorize me!</button>
 			<pre ng-show="isAuthorized">{{ calList | json }}</pre>
 		</div>
 	</body>
