@@ -3,9 +3,17 @@
 	<head>
 		<title></title>
 
-		<!-- CSS files-->
+		<!-- Bootstrap -->
 		<link rel="stylesheet" type="text/css"
 			href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+
+		<!-- Material Design for Bootstrap -->
+		<link rel="stylesheet" type="text/css"
+			href="/bower_components/bootstrap-material-design/dist/css/material-wfont.min.css" />
+		<link rel="stylesheet" type="text/css"
+			href="/bower_components/bootstrap-material-design/dist/css/ripples.min.css" />
+
+		<!-- Personal stylings -->
 		<link rel="stylesheet" type="text/css"
 			href="/css/styles.css" />
 
@@ -15,17 +23,44 @@
 		<!-- Angular files-->
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="/js/app.js"></script>
+
 		<script src="/js/controllers/MainController.js"></script>
+
+		<script src="/js/directives/navbar/navbar.js"></script>
+		<script src="/js/directives/welcomeBanner/welcomeBanner.js"></script>
+		<script src="/js/directives/loadwheel.js"></script>
+
 		<script src="/js/factories/gapi.js"></script>
 		<script src="/js/factories/googleApi/gapiInit.js"></script>
 		<script src="/js/factories/googleApi/gapiCal.js"></script>
 		<script src="/js/factories/googleApi/gapiEvt.js"></script>
 	</head>
 
+
 	<body ng-app="MainApp" ng-controller="MainController">
+		<nav-bar></nav-bar>
+
 		<div class="container">
-			<button ng-hide="isAuthorized" class="btn btn-default" ng-click="auth()">Authorize me!</button>
+			<welcome-banner ng-hide="isAuthorized"></welcome-banner>
+			<calen-do-list ng-show="isAuthorized"></calen-do-list>
+
+
 			<pre ng-show="isAuthorized">{{ calList | json }}</pre>
 		</div>
+
+		<load-wheel ng-show="showLoading"></load-wheel>
+
+
+
+
+		<!-- jQuery -->
+		<script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+		<!-- Bootstrap -->
+		<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+		<!-- Material Design for Bootstrap -->
+		<script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+		<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
 	</body>
 </html>

@@ -1,21 +1,26 @@
 app.controller('MainController', function($scope, gapiFactory) {
 	$scope.isAuthorized = false;
 	$scope.calList = {};
+	$scope.showLoading = false;
+
+	gapiFactory.gapiInit.getToken()
+	.then(function(token) {
+		$scope.isAuthorized = !!token;
+		if (token) {
+			console.log('hi');
+			$scope.$digest;
+		}
+	});
 
 	$scope.auth = function() {
-		gapiFactory.getAuth().then(function(authResult) {
+		$scope.showLoading = true;
+		gapiFactory.gapiInit.getAuth().then(function(authResult) {
 			$scope.isAuthorized = true;
-		}).then(function() {
-			return gapiFactory.getCalendarId('Hotel BK');
-		}).then(function(data) {
-			return gapiFactory.getEventList(data);
-		}).then(function(response) {
-			var list = response.map(function(item) {
-				return item.summary;
-			});
-			$scope.calList = list;
-		}).catch(function(err) {
-			$scope.calList = err.body;
+			$scope.showLoading = false;
+		// }).then(function() {
+		// 	return gapiFactory.gapiCal.safeMakeCalendar('Hotel BK', 'Hello!');
+		// }).then(function(data) {
+		// 	$scope.calList = data;
 		});
 	};
 });

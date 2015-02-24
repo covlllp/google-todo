@@ -1,2 +1,11 @@
 body {
-  padding-top: 50px; }
+  padding-top: 70px; }
+
+.navbar li, .navbar .navbar-brand {
+  transition: color ease-in-out .1s; }
+.navbar li:hover, .navbar .navbar-brand:hover {
+  color: #3C3C3C;
+  transition: color ease-in-out .1s; }
+
+.center {
+  margin: 0 auto; }

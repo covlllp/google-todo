@@ -14,6 +14,8 @@ app.factory('gapiEvt', function() {
 			});
 	};
 
+	
+
 
 	return factory;
 });
