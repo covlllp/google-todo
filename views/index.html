@@ -9,12 +9,20 @@
 		<link rel="stylesheet" type="text/css"
 			href="/css/styles.css" />
 
+		<!-- Google Javascript API -->
+		<script src="https://apis.google.com/js/client.js"></script>
+
 		<!-- Angular files-->
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="/js/app.js"></script>
+		<script src="/js/controllers/MainController.js"></script>
+		<script src="/js/factories/gapi.js"></script>
 	</head>
 
-	<body ng-app="MainApp">
-		
+	<body ng-app="MainApp" ng-controller="MainController">
+		<div class="container">
+			<button ng-hide="isAuthorized" class="btn btn-primary" ng-click="auth()">Authorize me!</button>
+			<pre ng-show="isAuthorized">{{ calList | json }}</pre>
+		</div>
 	</body>
 </html>
