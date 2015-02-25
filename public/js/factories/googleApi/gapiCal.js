@@ -2,11 +2,11 @@ app.factory('gapiCal', function($q) {
 	var factory = {};
 
 	factory.getCalendarList = function() {
-		return gapi.client.calendar
-			.calendarList.list()
-			.then(function(response) {
-				return response.result.items;
-			});
+		return $q.when(gapi.client.calendar
+			.calendarList.list())
+		.then(function(response) {
+			return response.result.items;
+		});
 	};
 
 	factory.getCalendarId = function(calendarName) {
@@ -30,11 +30,11 @@ app.factory('gapiCal', function($q) {
 	};
 
 	factory.makeCalendar = function(calName, calDesc) {
-		return gapi.client.calendar
+		return $q.when(gapi.client.calendar
 			.calendars.insert({
 				summary: calName,
 				description: calDesc
-			}).then(function(response) {
+			})).then(function(response) {
 				console.log('new calendar was made');
 				return response.result.id;
 			});

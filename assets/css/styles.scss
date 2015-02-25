@@ -15,4 +15,52 @@ body {
 
 .center {
 	margin: 0 auto;
+	width: 30px;
+}
+
+
+a.list-group-item {
+	cursor: pointer;
+}
+
+.list-group {
+	.list-group-item.active, .list-group-item.active:hover {
+		background-color: #337ab7;
+		transition: background-color ease-in-out .1s;
+	}
+
+	.list-group-item {
+		border-bottom: 1px solid rgba(0,0,0,.1);
+		// height: 60px;
+		position: relative;
+		transition: background-color ease-in-out .1s;
+		
+
+		.checkbox {
+			margin-top: 10px;
+			padding-right: 0;
+		}
+
+		.row-action-primary {
+			label {
+				height: 40px;
+			}
+		}
+
+		.row-content {
+			// min-height: 60px;
+			// width: calc(100% - 72px);
+			min-height: 10px;
+			position: absolute;
+			top: 50%;
+			transform: translate(0, -50%);
+
+			.task-title {
+				min-height: 10px;
+				position: absolute;
+				top: 50%;
+				transform: translate(0, -50%);
+			}
+		}
+	}
 }

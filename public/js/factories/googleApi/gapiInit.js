@@ -29,7 +29,7 @@ app.factory('gapiInit', function($q) {
 
 	factory.getToken = function() {
 		return calendarLoad.then(function() {
-			return gapi.auth.getToken();
+			return $q.when(gapi.auth.getToken());
 		});
 	};
 

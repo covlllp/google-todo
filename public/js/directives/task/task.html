@@ -1,0 +1,8 @@
+<a class="list-group-item" ng-click="select()" ng-class="{'active': selected}">
+	<div class="row-action-primary checkbox" ng-click="check()">
+		<label><input type="checkbox" ng-model="checked"></label>
+	</div>
+	<div class="row-content">
+			{{ task.summary }}
+	</div>
+</a>

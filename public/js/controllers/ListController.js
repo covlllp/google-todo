@@ -1,7 +1,13 @@
-app.controller('ListController', function($scope, gapiFactory) {
-	var calId;
+app.controller('ListController', function($scope, gapiFactory, globalFactory) {
+	$scope.events = [];
 
-	gapiFactory.gapiCal.getCalendarId('calenDoList').then(function(id) {
-		calId = id;
+	// fetch task events
+	$scope.$watch('global.calFound', function(newValue) {
+		if (!newValue) return;
+
+		gapiFactory.gapiEvt.getEventList(globalFactory.calId)
+		.then(function(events) {
+			$scope.events = events;
+		});
 	});
 });

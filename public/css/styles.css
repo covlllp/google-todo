@@ -8,4 +8,31 @@ body {
   transition: color ease-in-out .1s; }
 
 .center {
-  margin: 0 auto; }
+  margin: 0 auto;
+  width: 30px; }
+
+a.list-group-item {
+  cursor: pointer; }
+
+.list-group .list-group-item.active, .list-group .list-group-item.active:hover {
+  background-color: #337ab7;
+  transition: background-color ease-in-out .1s; }
+.list-group .list-group-item {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: background-color ease-in-out .1s; }
+  .list-group .list-group-item .checkbox {
+    margin-top: 10px;
+    padding-right: 0; }
+  .list-group .list-group-item .row-action-primary label {
+    height: 40px; }
+  .list-group .list-group-item .row-content {
+    min-height: 10px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%); }
+    .list-group .list-group-item .row-content .task-title {
+      min-height: 10px;
+      position: absolute;
+      top: 50%;
+      transform: translate(0, -50%); }
