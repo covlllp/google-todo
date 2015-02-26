@@ -1,5 +1,6 @@
-app.controller('ListController', function($scope, gapiFactory, globalFactory) {
+app.controller('ListController', function($scope, gapiFactory, globalFactory, selectedTask) {
 	$scope.events = [];
+	$scope.selectedTask = selectedTask;
 
 	// fetch task events
 	$scope.$watch('global.calFound', function(newValue) {

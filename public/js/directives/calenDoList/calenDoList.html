@@ -2,11 +2,18 @@
 	<div class="col-md-4">
 		<div class="list-group">
 			<task ng-repeat="event in events" task="event"></task>
+
+			<a class="list-group-item" id="addTaskItem">
+				<div class="row-action-primary">
+				<i class="mdi-content-add"></i>
+				</div>
+				<div class='row-content'>
+					Add new task
+				</div>
+			</a>
 		</div>
 	</div>
 	<div class="col-md-8">
-		<pre>
-			{{ events[0] | json }}
-		</pre>
+		<task-details task="selectedTask.task"></task-details>
 	</div>
 </div>

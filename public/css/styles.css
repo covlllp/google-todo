@@ -20,12 +20,20 @@ a.list-group-item {
 .list-group .list-group-item {
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   position: relative;
-  transition: background-color ease-in-out .1s; }
+  transition: background-color ease-in-out .1s;
+  min-height: 61px; }
   .list-group .list-group-item .checkbox {
     margin-top: 10px;
     padding-right: 0; }
-  .list-group .list-group-item .row-action-primary label {
-    height: 40px; }
+  .list-group .list-group-item .row-action-primary {
+    padding-right: 0; }
+    .list-group .list-group-item .row-action-primary label {
+      height: 40px; }
+    .list-group .list-group-item .row-action-primary i {
+      background: transparent;
+      color: #959595;
+      margin-left: -4px;
+      margin-right: 4px; }
   .list-group .list-group-item .row-content {
     min-height: 10px;
     position: absolute;
@@ -36,3 +44,10 @@ a.list-group-item {
       position: absolute;
       top: 50%;
       transform: translate(0, -50%); }
+
+#addTaskItem {
+  color: #959595;
+  font-style: italic; }
+
+.border {
+  border: #337ab7 solid 3px; }
