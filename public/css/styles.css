@@ -1,5 +1,5 @@
 body {
-  padding-top: 70px; }
+  padding-top: 80px; }
 
 .navbar li, .navbar .navbar-brand {
   transition: color ease-in-out .1s; }
@@ -14,40 +14,67 @@ body {
 a.list-group-item {
   cursor: pointer; }
 
-.list-group .list-group-item.active, .list-group .list-group-item.active:hover {
-  background-color: #337ab7;
-  transition: background-color ease-in-out .1s; }
-.list-group .list-group-item {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  position: relative;
-  transition: background-color ease-in-out .1s;
-  min-height: 61px; }
-  .list-group .list-group-item .checkbox {
-    margin-top: 10px;
-    padding-right: 0; }
-  .list-group .list-group-item .row-action-primary {
-    padding-right: 0; }
-    .list-group .list-group-item .row-action-primary label {
-      height: 40px; }
-    .list-group .list-group-item .row-action-primary i {
-      background: transparent;
-      color: #959595;
-      margin-left: -4px;
-      margin-right: 4px; }
-  .list-group .list-group-item .row-content {
-    min-height: 10px;
-    position: absolute;
-    top: 50%;
-    transform: translate(0, -50%); }
-    .list-group .list-group-item .row-content .task-title {
+.list-group {
+  margin-top: 15px; }
+  .list-group .list-group-item.active, .list-group .list-group-item.active:hover {
+    background-color: #337ab7;
+    border-right-width: 0;
+    width: calc(100% + 30px);
+    transition: background-color ease-in-out .1s;
+    transition: width ease-in-out .1s; }
+  .list-group .list-group-item {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    border-left: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: background-color ease-in-out .1s;
+    transition: width ease-in-out .1s;
+    min-height: 61px; }
+    .list-group .list-group-item .checkbox {
+      margin-top: 10px;
+      padding-right: 0; }
+    .list-group .list-group-item .row-action-primary {
+      padding-right: 0; }
+      .list-group .list-group-item .row-action-primary label {
+        height: 40px; }
+      .list-group .list-group-item .row-action-primary i {
+        background: transparent;
+        color: #959595;
+        margin-left: -4px;
+        margin-right: 4px; }
+    .list-group .list-group-item .row-content {
       min-height: 10px;
       position: absolute;
       top: 50%;
       transform: translate(0, -50%); }
+      .list-group .list-group-item .row-content .task-title {
+        min-height: 10px;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%); }
 
 #addTaskItem {
   color: #959595;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   font-style: italic; }
 
+.full-window {
+  min-height: calc(100vh - 100px);
+  height: calc(100vh - 100px); }
+
 .border {
-  border: #337ab7 solid 3px; }
+  border: #337ab7 solid 3px;
+  border-radius: 15px;
+  height: 100%; }
+
+task-details label {
+  font-size: 14px;
+  padding-top: 4px; }
+task-details h1 {
+  margin-top: 0; }
+  task-details h1 .form-control-wrapper .form-control, task-details h1 .form-control-wrapper .form-control:focus {
+    height: 40px;
+    font-size: 30px; }
+
+.small {
+  font-size: 10px; }

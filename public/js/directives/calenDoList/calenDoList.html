@@ -1,7 +1,7 @@
 <div class="row" ng-controller="ListController">
 	<div class="col-md-4">
 		<div class="list-group">
-			<task ng-repeat="event in events" task="event"></task>
+			<task ng-repeat="event in tasks.tasks" task="event"></task>
 
 			<a class="list-group-item" id="addTaskItem">
 				<div class="row-action-primary">
@@ -13,7 +13,7 @@
 			</a>
 		</div>
 	</div>
-	<div class="col-md-8">
-		<task-details task="selectedTask.task"></task-details>
+	<div class="col-md-8 full-window">
+		<task-details task="tasks.selectedTask"></task-details>
 	</div>
 </div>

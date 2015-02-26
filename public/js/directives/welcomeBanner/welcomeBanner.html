@@ -4,14 +4,14 @@
 		CalenDoList is a simple to-do list that integrates with Google Calendar,
 		so that it is easy to keep track of when things are due!
 	</p>
-	<button ng-hide="isAuthorized"
+	<button ng-hide="global.isAuthorized"
 		class="btn btn-material-green btn-raised"
 		ng-click="auth()">
 		Log Into Google
 	</button>
 
-	<p ng-show="isAuthorized">Oops! A calendar with name "{{ global.calName }}" could not be found!</p>
-	<div ng-show="isAuthorized">
+	<p ng-show="global.isAuthorized">Oops! A calendar with name "{{ global.calName }}" could not be found!</p>
+	<div ng-show="global.isAuthorized">
 		<button class="btn btn-material-green btn-raised" ng-click="createCal()">Create Calendar</button>
 		<form class="form-inline"
 			name="newCalLookupForm"

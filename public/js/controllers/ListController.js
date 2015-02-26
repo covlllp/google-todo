@@ -1,6 +1,6 @@
-app.controller('ListController', function($scope, gapiFactory, globalFactory, selectedTask) {
+app.controller('ListController', function($scope, gapiFactory, globalFactory, taskFactory) {
 	$scope.events = [];
-	$scope.selectedTask = selectedTask;
+	$scope.tasks = taskFactory;
 
 	// fetch task events
 	$scope.$watch('global.calFound', function(newValue) {
@@ -8,7 +8,11 @@ app.controller('ListController', function($scope, gapiFactory, globalFactory, se
 
 		gapiFactory.gapiEvt.getEventList(globalFactory.calId)
 		.then(function(events) {
-			$scope.events = events;
+			$scope.tasks.tasks = events;
+			setTimeout(function() {
+				$.material.init();
+
+			}, 0);
 		});
 	});
 });

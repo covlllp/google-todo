@@ -1,8 +1,68 @@
-<div id="taskDetailDiv" ng-class="{border: task!=null}">
-	<h1>{{task.summary}}</h1>
+<div class="col-md-12 border" ng-show="task!=null">
+	<form name="taskDetailForm">
+		<div class="form-group row">
+			<h1 class="col-md-12">
+				<label class="control-label" for="taskSummary">Title</label>
+				<input type="text"
+					required
+					name="summary"
+					id="taskSummary"
+					class="form-control"
+					placeholder="Title"
+					value="{{task.summary}}"
+					ng-model="task.summary">
+			</h1>
+		</div>
+		<br>
+		<div class="form-group row">
+			<label class="control-label col-md-2" for="taskDate">Due Date</label>
+			<div class="col-md-10">
+				<input type="text"
+					required
+					name="date"
+					id="taskDate"
+					class="form-control"
+					placeholder="Due Date"
+					value="{{ task.start.date }}"
+					ng-model="task.start.date">
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="control-label col-md-2" for="taskLocation">Location</label>
+			<div class="col-md-10">
+				<input type="text"
+					name="location"
+					id="taskLocation"
+					class="form-control"
+					placeholder="Location (optional)"
+					value="{{ task.location }}"
+					ng-model="task.location">
+				<a class="small"
+					href="https://maps.google.com/?q={{task.location}}"
+					target="_blank">
+					map
+				</a>
+			</div>
+		</div>
+
+		<div class="form-group row">
+			<label class="control-label col-md-2" for="taskDescription">Description</label>
+			<div class="col-md-10">
+				<textarea id="taskDescription"
+					name="description"
+					class="form-control"	
+					rows="3"
+					placeholder="Description (optional)"
+					ng-model="task.description">
+					{{ task.description }}
+				</textarea>
+			</div>
+		</div>
 
 
 
 
-	<pre>{{task | json}}</pre>
+
+	<!-- <pre>{{task | json}}</pre> -->
 </div>

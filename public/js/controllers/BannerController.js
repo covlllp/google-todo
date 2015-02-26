@@ -1,5 +1,5 @@
 app.controller('BannerController', function($scope, gapiFactory, globalFactory) {
-	$scope.isAuthorized = false;
+	$scope.global = globalFactory;
 
 	$scope.auth = function() {
 		$scope.showLoading = true;
@@ -10,15 +10,23 @@ app.controller('BannerController', function($scope, gapiFactory, globalFactory) 
 		});
 	}
 
+	$scope.logout = function() {
+		gapiFactory.gapiInit.logout()
+		.then(function() {
+			globalFactory.isAuthorized = false;
+			globalFactory.calFound = false;
+		});
+	}
+
 	function findCalId() {
 		gapiFactory.gapiCal.getCalendarId(globalFactory.calName)
 		.then(function(id) {
 			console.log('Calendar found, Cal ID is: ', id);
 			globalFactory.calId = id;
-			$scope.isAuthorized = true;
+			globalFactory.isAuthorized = true;
 			globalFactory.calFound = true;
 		}, function(err) {
-			$scope.isAuthorized = true;
+			globalFactory.isAuthorized = true;
 			console.log(err.body);
 		});
 	}

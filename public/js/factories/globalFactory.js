@@ -3,6 +3,7 @@ app.factory('globalFactory', function() {
 		calName: 'CalenDoList Calendar',
 		calDesc: 'Calendar for CalenDoList',
 		calFound: false,
-		calId: null
+		calId: null,
+		isAuthorized: false
 	}
 });

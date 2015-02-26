@@ -33,6 +33,29 @@ app.factory('gapiInit', function($q) {
 		});
 	};
 
+	factory.logout = function() {
+		return $q.when(gapi.auth.signOut());
+	}
+
 
 	return factory;
+});
+
+app.run(function(gapiFactory, globalFactory) {
+	gapiFactory.gapiInit.getAuth()
+	.then(function() {
+		globalFactory.isAuthorized = true;
+		findCalId();
+	});
+
+	function findCalId() {
+		gapiFactory.gapiCal.getCalendarId(globalFactory.calName)
+		.then(function(id) {
+			console.log('Calendar found, Cal ID is: ', id);
+			globalFactory.calId = id;
+			globalFactory.calFound = true;
+		}, function(err) {
+			console.log(err.body);
+		});
+	}
 });
