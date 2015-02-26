@@ -23,6 +23,10 @@ app.directive('taskDetails', function(gapiFactory, globalFactory) {
 			}
 
 			scope.$watch('task', function(newValue, oldValue) {
+				// work here, add saves on new selects!
+				console.log(oldValue);
+				console.log(scope.taskDetailForm.$dirty);
+
 				if (newValue) {
 					updateOrigTaskOn(scope.task);
 				}
@@ -47,7 +51,7 @@ app.directive('taskDetails', function(gapiFactory, globalFactory) {
 					setTimeout(function() {
 						scope.showUpdate = false;
 						scope.$digest();
-					}, 1000)
+					}, 2000)
 				});
 				updateOrigTaskOn(task);
 			}

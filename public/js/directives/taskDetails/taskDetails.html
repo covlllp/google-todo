@@ -25,6 +25,7 @@
 					placeholder="Due Date (required)"
 					data-hint="yyyy-mm-dd"
 					value="{{ task.start.date }}"
+					validate-date
 					ng-model="task.start.date">
 			</div>
 		</div>
@@ -72,9 +73,9 @@
 		ng-show="taskDetailForm.$dirty">
 		Undo Changes
 	</button>
-	<p ng-show="showUpdate">{{ updateMessage }}</p>
+	<p ng-show="showUpdate" class="faded-green"><br>{{ updateMessage }}</p>
 	<load-wheel ng-show="isLoading"></load-wheel>
 
-	<!-- <pre>{{origTask | json }}</pre> -->
+	<!-- <pre>{{taskDetailForm.date | json }}</pre> -->
 	<!-- <pre>{{task | json }}</pre> -->
 </div>

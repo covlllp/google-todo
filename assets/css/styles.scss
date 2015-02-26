@@ -86,11 +86,13 @@ a.list-group-item {
 }
 
 .full-window {
+	// padding: 0 15px 30px;
 	min-height: calc(100vh - 100px);
 	height: calc(100vh - 100px);
 }
 
 .border {
+	// padding: 0 15px 30px;
 	border: #2196F3 solid 3px;
 	// border-left-width: 5px;
 	border-radius: 15px;
@@ -129,4 +131,8 @@ task-details {
 
 .small {
 	font-size: 10px;
+}
+
+.faded-green {
+	color: #4CAF50;
 }
