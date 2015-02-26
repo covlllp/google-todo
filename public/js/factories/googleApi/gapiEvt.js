@@ -13,6 +13,24 @@ app.factory('gapiEvt', function($q) {
 			});
 	};
 
+	factory.updateEvent = function(calId, evtId, evtObj) {
+		return $q.when(gapi.client.calendar
+			.events.update({
+				calendarId: calId,
+				eventId: evtId,
+				summary: evtObj.summary,
+				location: evtObj.location,
+				description: evtObj.description,
+				start: {
+					date: evtObj.start.date
+				},
+				end: {
+					date: evtObj.end.date
+				}
+			})).then(function(response) {
+				console.log(response);
+			});
+	}
 	
 
 

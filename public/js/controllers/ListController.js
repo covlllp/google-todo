@@ -11,7 +11,6 @@ app.controller('ListController', function($scope, gapiFactory, globalFactory, ta
 			$scope.tasks.tasks = events;
 			setTimeout(function() {
 				$.material.init();
-
 			}, 0);
 		});
 	});

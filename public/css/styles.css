@@ -7,8 +7,7 @@ body {
   color: #3C3C3C;
   transition: color ease-in-out .1s; }
 
-.center {
-  margin: 0 auto;
+.small {
   width: 30px; }
 
 a.list-group-item {
@@ -17,7 +16,7 @@ a.list-group-item {
 .list-group {
   margin-top: 15px; }
   .list-group .list-group-item.active, .list-group .list-group-item.active:hover {
-    background-color: #337ab7;
+    background-color: #2196F3;
     border-right-width: 0;
     width: calc(100% + 30px);
     transition: background-color ease-in-out .1s;
@@ -63,13 +62,19 @@ a.list-group-item {
   height: calc(100vh - 100px); }
 
 .border {
-  border: #337ab7 solid 3px;
+  border: #2196F3 solid 3px;
   border-radius: 15px;
   height: 100%; }
 
-task-details label {
+task-details .form-group .control-label {
   font-size: 14px;
-  padding-top: 4px; }
+  padding-top: 4px;
+  color: rgba(0, 0, 0, 0.84); }
+task-details #taskDescription {
+  padding: 3px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #CCCCCC;
+  border-left: 1px solid #CCCCCC; }
 task-details h1 {
   margin-top: 0; }
   task-details h1 .form-control-wrapper .form-control, task-details h1 .form-control-wrapper .form-control:focus {
