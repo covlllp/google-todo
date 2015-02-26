@@ -1,6 +1,6 @@
 <div class="col-md-12 border" ng-show="task!=null">
 	<form name="taskDetailForm">
-		<div class="form-group row">
+		<div class="form-group row" ng-class="{has-error: taskDetailForm.summary.$valid}">
 			<h1 class="col-md-12">
 				<label class="control-label" for="taskSummary">Title</label>
 				<input type="text"
@@ -14,15 +14,15 @@
 			</h1>
 		</div>
 		<br>
-		<div class="form-group row">
+		<div class="form-group row" ng-class="{has-error: taskDetailForm.date.$valid}">
 			<label class="control-label col-md-2" for="taskDate">Due Date</label>
 			<div class="col-md-10">
 				<input type="text"
 					required
 					name="date"
 					id="taskDate"
-					class="form-control"
-					placeholder="Due Date"
+					class="form-control floating-label"
+					placeholder="yyyy-mm-dd"
 					value="{{ task.start.date }}"
 					ng-model="task.start.date">
 			</div>
@@ -61,7 +61,7 @@
 		</div>
 
 
-
+	<pre>{{taskDetailForm.date | json }}</pre>
 
 
 	<!-- <pre>{{task | json}}</pre> -->
